@@ -1,0 +1,14 @@
+.clock {
+    font-family: monospace;
+    font-size: 1rem;
+    display: grid;
+    grid-template-columns: 90% 10%;
+    align-items: center;
+}
+.clock b {
+    font-size: 1.5rem;
+
+}
+.clock small {
+    font-size: .8rem;
+}
