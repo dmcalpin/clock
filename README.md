@@ -1,3 +1,6 @@
+# Clock
+This is a simple PWA that allows you to keep a list of time zones and viewer the current time in those locations.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
