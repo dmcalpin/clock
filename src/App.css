@@ -1,8 +1,5 @@
-body {
-  color: #fff;
-}
-header { /* much easier than display: flex */
-  display: grid;
+header {
+  display: grid; /* much easier than display: flex */
   grid-template-columns: 5% auto 25%;
   grid-column-gap: 2%;
   padding: 1%;

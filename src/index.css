@@ -2,6 +2,7 @@
 
 body {
   background: rgb(89,89,89);
-  background: linear-gradient(0deg, rgba(89,89,89,1) 0%, rgba(29,97,233,1) 35%);
+  background: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgb(74, 134, 255) 35%);
   min-height: 100vh;
+  color: #fff;
 }
