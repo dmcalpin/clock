@@ -14,13 +14,14 @@ function getTimeZoneDisplay(timeZone) {
 }
 
 function getTimeZoneOffset(timeZone){
-    const newDate = new Date()
+    const now = new Date()
 
     // store the date/time of the given time zone
-    const localDate = new Date(newDate.toLocaleString("en-US", {timeZone: timeZone || DEFAULT_TIMEZONE}))
+    const localizedDate = new Date(now.toLocaleString("en-US", {timeZone: timeZone || DEFAULT_TIMEZONE}))
 
     // Extract just the offset
-    return Math.round((newDate - localDate) / 36000) - newDate.getTimezoneOffset()/60 * 100
+    const offset = Math.round((localizedDate - now) / 36000)
+    return offset < 0 ? offset.toString() : `+${offset.toString()}`
 }
 
 // Basic clock component
@@ -37,15 +38,21 @@ function Clock ({ timeZone, onRemove }) {
             clearInterval(updateInterval)
         }
     })
+
+    
    
     return (
         <div className="clock">
             <b>
                 {getTimeZoneDisplay(timeZone)}: {time}
                 <br />
-                <small>UTC {getTimeZoneOffset(timeZone)} Hrs</small>
+                {
+                    getTimeZoneOffset(timeZone) !== '+0' ? 
+                    (<small>Current {getTimeZoneOffset(timeZone)} Hrs</small>) : 
+                    ''
+                }
             </b>
-            <button onClick={() => onRemove(timeZone)} title="remove">X</button>
+            <button onClick={() => onRemove(timeZone)} title={'remove ' + getTimeZoneDisplay(timeZone)}>X</button>
         </div>
     )
 }

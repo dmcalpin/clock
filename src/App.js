@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import './App.css';
 import Clock from './Clock'
+import AppIcon from './AppIcon'
 import allTimeZones from './timezones'
 
 const TIME_ZONE_KEY = "timeZones"
@@ -8,7 +9,7 @@ const TIME_ZONE_KEY = "timeZones"
 function App() {
   let defaultTimeZones = localStorage.getItem(TIME_ZONE_KEY)
   defaultTimeZones = defaultTimeZones ? JSON.parse(defaultTimeZones) : []
-  
+
   // myTimeZones: a list of time zones i've selected to keep track of
   // selectedTimeZone: the time zone to be added to myTimeZones
   const [myTimeZones, setMyTimeZones] = useState(defaultTimeZones)
@@ -44,7 +45,7 @@ function App() {
   return (
     <div id="app">
       <header>
-        <h1 className="app-icon">Dave's Clock App</h1>
+        <AppIcon></AppIcon>
         
         <select value={selectedTimeZone} onChange={handleChange}>
           <option value="">Choose Timezone</option>
